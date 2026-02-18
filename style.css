@@ -1,0 +1,137 @@
+/* --- WARHOL AESTHETIC CSS --- */
+:root {
+    --factory-silver: #E0E0E0;
+    --pop-yellow: #FFEE00;
+    --pop-pink: #FF007F;
+    --ink-black: #111111;
+    --screen-blue: #00CCFF;
+}
+
+body {
+    background-color: var(--ink-black);
+    font-family: 'Courier New', Courier, monospace; /* Typewriter look */
+    color: var(--factory-silver);
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+}
+
+/* HEADER */
+header {
+    background-color: var(--pop-yellow);
+    color: var(--ink-black);
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 5px solid var(--pop-pink);
+    transform: skewY(-2deg); /* Slight "off-kilter" pop art angle */
+    margin-bottom: 30px;
+    margin-top: -10px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    font-weight: 900;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* INFO BOX */
+.info-box {
+    border: 2px solid white;
+    padding: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    background: #222;
+    box-shadow: 5px 5px 0px var(--screen-blue);
+}
+
+/* SCHEDULE LIST */
+.schedule-item {
+    border-bottom: 1px solid #444;
+    padding: 15px 0;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.schedule-item:hover {
+    background: #222;
+}
+
+.time-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+}
+
+.time {
+    color: var(--pop-yellow);
+}
+
+.arrow {
+    color: var(--pop-pink);
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+
+/* ACCORDION CONTENT */
+.details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    color: #ccc;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+.details p {
+    padding-top: 10px;
+    margin: 0;
+}
+
+/* Active State (controlled by JS) */
+.schedule-item.active .details {
+    max-height: 200px; 
+}
+
+.schedule-item.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* FOOTER */
+footer {
+    margin-top: 50px;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8rem;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.btn-save {
+    display: inline-block;
+    margin-top: 10px;
+    background: white;
+    color: black;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8rem;
+}

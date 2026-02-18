@@ -3,87 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Warhol Experience</title>
-    <style>
-        :root {
-            --pop-pink: #FF1493;
-            --pop-yellow: #FFFF00;
-            --pop-black: #000000;
-        }
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: var(--pop-black);
-            color: var(--pop-yellow);
-            text-align: center;
-            margin: 0;
-        }
-        .header {
-            background-color: var(--pop-pink);
-            color: white;
-            padding: 20px;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 24px;
-        }
-        .card {
-            border: 4px solid white;
-            margin: 20px;
-            padding: 20px;
-            background: #222;
-        }
-        button {
-            background: var(--pop-yellow);
-            color: black;
-            border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-            box-shadow: 5px 5px 0px white; /* Pop art drop shadow */
-        }
-        button:active {
-            box-shadow: 2px 2px 0px white;
-            transform: translateY(3px);
-        }
-    </style>
+    <title>WARHOL 2025 PROGRAMME</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="header">
-        The Factory Guide
+    <header>
+        <h1>IDOL<br></h1>
+        <div class="subtitle">NNT x Lakeside ARTS • 2026</div>
+    </header>
+
+    <div class="container">
+        
+        <div class="info-box">
+            <p><strong>TODAY'S DATE:</strong> <span id="current-date">Loading...</span></p>
+            <p><strong>OPEN:</strong> 6:00 PM - 9:00 PM</p>
+            <p style="color:var(--pop-pink)">★ FREE WIFI: MK_GUEST</p>
+        </div>
+
+        <h2 style="border-bottom: 2px solid var(--pop-yellow); display:inline-block;">TODAY'S EVENTS</h2>
+
+        <div class="schedule-item" onclick="toggle(this)">
+            <div class="time-row">
+                <span class="time">6:30 PM</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div style="font-size: 1rem; color: white;">Performance: "15 Minutes of Fame"</div>
+            <div class="details">
+                <p>Join our volunteer guides for a friendly tour discussing the exhibition. Meet in the Main Foyer.</p>
+                <a href="#" class="btn-save">Add to Calendar</a>
+            </div>
+        </div>
+
+        <div class="schedule-item" onclick="toggle(this)">
+            <div class="time-row">
+                <span class="time">7:00 PM</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div style="font-size: 1rem; color: white;">Performance: Monologues and Duologues</div>
+            <div class="details">
+                <p>Watch a live demo of the silkscreen technique Warhol used for the Marilyn Diptych. Location: Learning Studio.</p>
+            </div>
+        </div>
+
+        <div class="schedule-item" onclick="toggle(this)">
+            <div class="time-row">
+                <span class="time">7:30 PM</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div style="font-size: 1rem; color: white;">Second Entry</div>
+            <div class="details">
+                <p>A screening of excerpts from Warhol's 1964 silent film. Running time: 45 mins. Auditorium.</p>
+            </div>
+        </div>
+
+        <div class="schedule-item" onclick="toggle(this)">
+            <div class="time-row">
+                <span class="time">7:45 PM</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div style="font-size: 1rem; color: white;">Performance: "15 Minutes of Fame" (reprise)</div>
+            <div class="details">
+                <p>Gallery entry closes. Gift shop remains open until 5:30 PM.</p>
+            </div>
+        </div>
+
+        <div class="schedule-item" onclick="toggle(this)">
+            <div class="time-row">
+                <span class="time">8:15 PM</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div style="font-size: 1rem; color: white;">Performance: Monologues and Duologues</div>
+            <div class="details">
+                <p>Last chance to experience the exhibition with our volunteer guides. Meet in the Main Foyer.</p>
+                <a href="#" class="btn-save">Add to Calendar</a>
+            </div>
+        </div>
+
+        <div class="schedule-item" onclick="toggle(this)">
+            <div class="time-row">
+                <span class="time">9:00 PM</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div style="font-size: 1rem; color: white;">NG1 After Party</div>
+            <div class="details">
+                <p>Thank you for visiting! We hope you enjoyed the exhibition. See you next time!</p>
+            </div>
+        </div>
+
     </div>
 
-    <div id="content-area">
-        <p>Scan a code to reveal the art.</p>
-        <div id="reader" width="600px"></div>
-    </div>
+    <footer>
+        <p>Start Your Own Factory<br>© 2026 Event Programme</p>
+    </footer>
 
-    <div class="card">
-        <h3>Make Your Own Pop Art</h3>
-        <p>Take a selfie and Warhol-ize it.</p>
-        <button onclick="startCamera()">Open Camera</button>
-    </div>
-
-    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
     <script>
-        // Simple logic to handle URL parameters (e.g., ?art=marilyn)
-        const urlParams = new URLSearchParams(window.location.search);
-        const artPiece = urlParams.get('art');
+        // 1. Set the Date Automatically
+        const dateOptions = { weekday: 'long', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-UK', dateOptions);
 
-        if (artPiece) {
-            document.getElementById('content-area').innerHTML = `
-                <h2>You found: ${artPiece.toUpperCase()}</h2>
-                <p>Loading audio guide...</p>
-                <audio controls autoplay>
-                    <source src="assets/audio/${artPiece}.mp3" type="audio/mpeg">
-                </audio>
-            `;
-        }
-
-        function startCamera() {
-            alert("This is where you'd trigger the getUserMedia API for the filter!");
+        // 2. Accordion Logic
+        function toggle(element) {
+            // Close all others first (optional, keeps it clean)
+            document.querySelectorAll('.schedule-item').forEach(item => {
+                if(item !== element) item.classList.remove('active');
+            });
+            // Toggle clicked
+            element.classList.toggle('active');
         }
     </script>
+
 </body>
 </html>
