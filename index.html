@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warhol Experience</title>
+    <style>
+        :root {
+            --pop-pink: #FF1493;
+            --pop-yellow: #FFFF00;
+            --pop-black: #000000;
+        }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--pop-black);
+            color: var(--pop-yellow);
+            text-align: center;
+            margin: 0;
+        }
+        .header {
+            background-color: var(--pop-pink);
+            color: white;
+            padding: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .card {
+            border: 4px solid white;
+            margin: 20px;
+            padding: 20px;
+            background: #222;
+        }
+        button {
+            background: var(--pop-yellow);
+            color: black;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 5px 5px 0px white; /* Pop art drop shadow */
+        }
+        button:active {
+            box-shadow: 2px 2px 0px white;
+            transform: translateY(3px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        The Factory Guide
+    </div>
+
+    <div id="content-area">
+        <p>Scan a code to reveal the art.</p>
+        <div id="reader" width="600px"></div>
+    </div>
+
+    <div class="card">
+        <h3>Make Your Own Pop Art</h3>
+        <p>Take a selfie and Warhol-ize it.</p>
+        <button onclick="startCamera()">Open Camera</button>
+    </div>
+
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script>
+        // Simple logic to handle URL parameters (e.g., ?art=marilyn)
+        const urlParams = new URLSearchParams(window.location.search);
+        const artPiece = urlParams.get('art');
+
+        if (artPiece) {
+            document.getElementById('content-area').innerHTML = `
+                <h2>You found: ${artPiece.toUpperCase()}</h2>
+                <p>Loading audio guide...</p>
+                <audio controls autoplay>
+                    <source src="assets/audio/${artPiece}.mp3" type="audio/mpeg">
+                </audio>
+            `;
+        }
+
+        function startCamera() {
+            alert("This is where you'd trigger the getUserMedia API for the filter!");
+        }
+    </script>
+</body>
+</html>
