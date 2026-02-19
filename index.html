@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WARHOL 2025 PROGRAMME</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header>
@@ -14,14 +16,14 @@
     </header>
 
     <div class="container">
-        
+
         <div class="info-box">
             <p><strong>TODAY'S DATE:</strong> <span id="current-date">Loading...</span></p>
             <p><strong>OPEN:</strong> 6:00 PM - 9:00 PM</p>
-            <p style="color:var(--pop-pink)">★ FREE WIFI: MK_GUEST</p>
+            <p style="color:var(--pop-pink)">★ FREE DRINK ON ENTRY </p>
         </div>
 
-        <h2 style="border-bottom: 2px solid var(--pop-yellow); display:inline-block;">TODAY'S EVENTS</h2>
+        <h2 style="border-bottom: 2px solid var(--pop-yellow); display:inline-block;">TODAY'S SCHEDULE</h2>
 
         <div class="schedule-item" onclick="toggle(this)">
             <div class="time-row">
@@ -30,7 +32,7 @@
             </div>
             <div style="font-size: 1rem; color: white;">Performance: "15 Minutes of Fame"</div>
             <div class="details">
-                <p>Join our volunteer guides for a friendly tour discussing the exhibition. Meet in the Main Foyer.</p>
+                <p>Our main piece around the theme of fame and celebrity culture. Taking place in the cafe space.</p>
                 <a href="#" class="btn-save">Add to Calendar</a>
             </div>
         </div>
@@ -42,7 +44,8 @@
             </div>
             <div style="font-size: 1rem; color: white;">Performance: Monologues and Duologues</div>
             <div class="details">
-                <p>Watch a live demo of the silkscreen technique Warhol used for the Marilyn Diptych. Location: Learning Studio.</p>
+                <p>A sieries of short performances inspired by Warhol's films and art. Taking place in the Main Cafe space, Factory and Angear.
+                    Studio.</p>
             </div>
         </div>
 
@@ -53,7 +56,7 @@
             </div>
             <div style="font-size: 1rem; color: white;">Second Entry</div>
             <div class="details">
-                <p>A screening of excerpts from Warhol's 1964 silent film. Running time: 45 mins. Auditorium.</p>
+                <p>Second entry for those who missed the first.</p>
             </div>
         </div>
 
@@ -64,7 +67,7 @@
             </div>
             <div style="font-size: 1rem; color: white;">Performance: "15 Minutes of Fame" (reprise)</div>
             <div class="details">
-                <p>Gallery entry closes. Gift shop remains open until 5:30 PM.</p>
+                <p>Reprise of the main performance from earlier in the evening. Taking place in the Main Cafe space.</p>
             </div>
         </div>
 
@@ -75,7 +78,7 @@
             </div>
             <div style="font-size: 1rem; color: white;">Performance: Monologues and Duologues</div>
             <div class="details">
-                <p>Last chance to experience the exhibition with our volunteer guides. Meet in the Main Foyer.</p>
+                <p>The second round of short performances inspired by Warhol's films and art. Taking place in the Main Cafe space, Factory and Angear.</p>
                 <a href="#" class="btn-save">Add to Calendar</a>
             </div>
         </div>
@@ -87,14 +90,45 @@
             </div>
             <div style="font-size: 1rem; color: white;">NG1 After Party</div>
             <div class="details">
-                <p>Thank you for visiting! We hope you enjoyed the exhibition. See you next time!</p>
+                <p>Join us for the after party @NG1! Thanks for coming we hope you enjoyed the evening!</p>
             </div>
         </div>
 
+        <h2 style="border-bottom: 2px solid var(--pop-yellow); display:inline-block;">THE MAKING OF IDOL</h2>
+
+        <div class="promo-box">
+            <div class="promo-tag">NEW</div>
+            <h3>BEHIND THE CURTAIN</h3>
+            <p>Go backstage and see how <em>IDOL</em> came to life, from the devising process to the final rehearsal.
+            </p>
+            <a href="making-of.html" class="btn-promo">EXPLORE THE MAKING OF →</a>
+        </div>
+
+        <div class="partner-section">
+            <h3 class="partner-title">SUPPORTED BY</h3>
+
+            <div class="logo-banner">
+                <a href="https://designservices.co.uk/" class="logo-box" target="_blank">
+                    <img src="pds-logo.svg" alt="Presentation Design Services">
+                </a>
+
+                <a href="https://www.ngone.club/" class="logo-box" target="_blank">
+                    <img src="NG1_logo.avif" alt="NG1">
+                </a>
+
+                <a href="https://www.lakesidearts.org.uk/" class="logo-box" target="_blank">
+                    <img src="lakeside-arts-light-blue.avif" alt="Lakeside Arts">
+                </a>
+
+                <a href="https://newtheatre.org.uk/" class="logo-box" target="_blank">
+                    <img src="NNT_100yrs_birthday.svg" alt="Nottingham New Theatre">
+                </a>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>Start Your Own Factory<br>© 2026 Event Programme</p>
+        <p>NNT x LAKESIDE ARTS<br>© 2026 Event Programme</p>
     </footer>
 
     <script>
@@ -106,7 +140,7 @@
         function toggle(element) {
             // Close all others first (optional, keeps it clean)
             document.querySelectorAll('.schedule-item').forEach(item => {
-                if(item !== element) item.classList.remove('active');
+                if (item !== element) item.classList.remove('active');
             });
             // Toggle clicked
             element.classList.toggle('active');
@@ -114,4 +148,5 @@
     </script>
 
 </body>
+
 </html>

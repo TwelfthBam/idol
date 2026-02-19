@@ -9,7 +9,8 @@
 
 body {
     background-color: var(--ink-black);
-    font-family: 'Courier New', Courier, monospace; /* Typewriter look */
+    font-family: 'Courier New', Courier, monospace;
+    /* Typewriter look */
     color: var(--factory-silver);
     margin: 0;
     padding: 0;
@@ -23,9 +24,12 @@ header {
     padding: 30px 20px;
     text-align: center;
     border-bottom: 5px solid var(--pop-pink);
-    transform: skewY(-2deg); /* Slight "off-kilter" pop art angle */
+    transform: skewY(-2deg);
+    /* Slight "off-kilter" pop art angle */
+    transform-origin: top left;
     margin-bottom: 30px;
-    margin-top: -10px;
+    margin-top: -15px;
+    padding-top: 50px;
 }
 
 h1 {
@@ -95,7 +99,7 @@ h1 {
 .details {
     max-height: 0;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
     color: #ccc;
     padding-left: 0;
@@ -109,11 +113,14 @@ h1 {
 
 /* Active State (controlled by JS) */
 .schedule-item.active .details {
-    max-height: 500px; /* Needs to be a specific number, not 'auto' */
+    max-height: 500px;
+    /* Needs to be a specific number, not 'auto' */
     opacity: 1;
-    padding-top: 15px; /* Move the 'whitespace' into the transition */
+    padding-top: 15px;
+    /* Move the 'whitespace' into the transition */
     padding-bottom: 10px;
 }
+
 .schedule-item.active .arrow {
     transform: rotate(180deg);
 }
@@ -141,7 +148,8 @@ footer {
 
 /* Ensure the details expand when the parent has the .active class */
 .schedule-item.active .details {
-    max-height: 500px; /* Large enough to fit your text */
+    max-height: 500px;
+    /* Large enough to fit your text */
     margin-top: 10px;
     padding-bottom: 10px;
 }
@@ -149,4 +157,149 @@ footer {
 /* Rotate the arrow when active */
 .schedule-item.active .arrow {
     transform: rotate(180deg);
+}
+
+/* Standalone Promo Box */
+.promo-box {
+    background-color: var(--ink-black);
+    border: 3px solid var(--screen-blue);
+    padding: 20px;
+    margin: 30px 0;
+    position: relative;
+    box-shadow: 8px 8px 0px var(--pop-pink);
+    /* Offset shadow effect */
+}
+
+.promo-tag {
+    position: absolute;
+    top: -15px;
+    right: 15px;
+    background: var(--pop-yellow);
+    color: var(--ink-black);
+    padding: 2px 10px;
+    font-weight: 900;
+    font-size: 0.8rem;
+    transform: rotate(5deg);
+}
+
+.promo-box h3 {
+    margin: 0 0 10px 0;
+    color: var(--screen-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.promo-box p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    color: var(--factory-silver);
+}
+
+/* The Action Link */
+.btn-promo {
+    display: inline-block;
+    background-color: var(--screen-blue);
+    color: var(--ink-black);
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: transform 0.1s;
+}
+
+.btn-promo:hover {
+    background-color: white;
+    transform: scale(1.05);
+}
+
+/* PARTNER SECTION - CLEAN VERSION */
+.partner-section {
+    margin-top: 60px;
+    border-top: 4px solid var(--factory-silver);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    /* added bottom padding for space before footer */
+    text-align: center;
+}
+
+.partner-title {
+    font-size: 0.9rem;
+    color: var(--factory-silver);
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* THE BANNER GRID */
+.logo-banner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 Equal columns */
+    gap: 20px;
+    align-items: center;
+    /* Centers items vertically in the row */
+    justify-items: center;
+    /* Centers items horizontally in their slot */
+}
+
+/* THE LOGO WRAPPER (Removed border/background) */
+.logo-box {
+    background: transparent;
+    /* No more white box */
+    border: none;
+    /* No more border */
+    padding: 0;
+    transition: transform 0.2s;
+    width: 100%;
+    /* Ensures the box fills the grid slot */
+    display: flex;
+    /* Use flex to center image inside the box */
+    justify-content: center;
+}
+
+/* THE IMAGE ITSELF */
+/* THE LOGO BOX (The clickable link) */
+.logo-box {
+    display: flex;             /* centers image inside the link */
+    justify-content: center;   /* centers horizontally */
+    align-items: center;       /* centers vertically */
+    text-decoration: none;     /* removes underline */
+    border: none;              /* ensures no border */
+    background: transparent;
+}
+
+/* THE IMAGE (The strict sizing rules) */
+.logo-box img {
+    height: 60px !important;       /* FORCE HEIGHT */
+    width: auto !important;        /* FORCE WIDTH TO SCALE NATURALLY */
+    max-width: 100%;               /* Stop it from overflowing the column */
+    
+    /* YOUR STYLING */
+    object-fit: contain;
+    filter: grayscale(0%);         /* Color by default */
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.logo-box:hover img {
+    filter: grayscale(100%);       /* Grey on hover */
+    opacity: 0.6;
+    transform: translateY(-3px);
+}
+
+
+/* MOBILE ADJUSTMENT */
+@media (max-width: 600px) {
+    .logo-banner {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2x2 grid on phones */
+        row-gap: 30px;
+        /* More space between rows on mobile */
+    }
+
+    .logo-box img {
+        height: 40px;
+        /* Slightly smaller logos on mobile */
+    }
 }
