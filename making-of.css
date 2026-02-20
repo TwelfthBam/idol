@@ -162,12 +162,12 @@ section h3 {
     /* Placeholder color */
     object-fit: cover;
     border: 2px solid var(--factory-silver);
-    filter: grayscale(100%);
+    filter: grayscale(0%);
     transition: filter 0.3s, border-color 0.3s;
 }
 
 .gallery-img:hover {
-    filter: grayscale(0%);
+    filter: grayscale(100%);
     border-color: var(--pop-crimson);
 }
 
