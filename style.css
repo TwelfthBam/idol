@@ -303,3 +303,31 @@ footer {
         /* Slightly smaller logos on mobile */
     }
 }
+
+/* TABLE STYLES */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: var(--factory-silver);
+    font-size: 0.85rem;
+}
+
+.schedule-table th, 
+.schedule-table td {
+    border: 1px solid #444;
+    padding: 8px;
+    text-align: left;
+}
+
+.schedule-table th {
+    background-color: #222;
+    color: var(--pop-yellow);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.schedule-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
