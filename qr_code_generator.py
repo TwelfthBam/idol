@@ -5,9 +5,8 @@ from qrcode.image.styles.colormasks import SolidFillColorMask
 
 # Data for the event (e.g., specific artworks or zones)
 exhibition_items = {
-    "entrance": "https://idol-nnt.com/welcome",
-    "marilyn": "https://idol-nnt.com/art/marilyn-diptych",
-    "soup_can": "https://idol-nnt.com/art/soup-cans"
+    "programme": "https://twelfthbam.github.io/idol/index.html",
+    "behind-the-scenes": "https://twelfthbam.github.io/idol/making-of.html",
 }
 
 def create_warhol_qr(data, name, color=(0, 0, 0)):
@@ -23,5 +22,5 @@ def create_warhol_qr(data, name, color=(0, 0, 0)):
     img.save(f"qr_{name}.png")
     print(f"Generated {name}")
 
-# Generate a 'Hot Pink' QR code (R, G, B)
-create_warhol_qr(exhibition_items["marilyn"], "marilyn", color=(255, 20, 147))
+create_warhol_qr(exhibition_items["programme"], "programme", color=(0, 0, 0))  
+create_warhol_qr(exhibition_items["behind-the-scenes"], "behind_the_scenes", color=(0, 0, 0))  
