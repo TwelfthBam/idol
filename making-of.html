@@ -1,4 +1,374 @@
 <!DOCTYPE html>
-<html lang="en">    
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Making of IDOL</title>
+    <style>
+        /* --- NEW POP ART PALETTE --- */
+        :root {
+            --pop-orange: #e3854e;
+            --pop-mustard: #e1b94f;
+            --pop-cyan: #44b8d1;
+            --pop-crimson: #dd544c;
+            --ink-black: #111111;
+            --factory-silver: #E0E0E0;
+        }
+
+        body {
+            background-color: var(--ink-black);
+            font-family: 'Courier New', Courier, monospace;
+            color: var(--factory-silver);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--pop-cyan);
+            color: var(--ink-black);
+            padding: 40px 20px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--pop-crimson);
+            transform: skewY(2deg);
+            transform-origin: top right;
+            margin-top: 0px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            font-weight: 900;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        /* VIDEO WRAPPER */
+        .video-container {
+            margin: 30px auto;
+            border: 4px solid var(--pop-mustard);
+            box-shadow: 8px 8px 0px var(--pop-orange);
+            background-color: #222;
+            max-width: 320px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            will-change: transform;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        video::-webkit-media-controls,
+        video::-webkit-media-controls-enclosure {
+            display: none !important;
+        }
+
+        /* SECTION STYLING */
+        section {
+            margin: 60px 0;
+            text-align: left;
+        }
+
+        section h2 {
+            color: var(--pop-mustard);
+            border-bottom: 3px solid var(--pop-crimson);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        section h3 {
+            color: var(--pop-cyan);
+            margin-top: 30px;
+            text-transform: uppercase;
+        }
+
+        /* TEAM GRID */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .team-card {
+            background-color: #222;
+            border: 3px solid var(--pop-orange);
+            padding: 15px;
+            transition: transform 0.2s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 5px 5px 0px var(--pop-cyan);
+        }
+
+        .team-photo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-color: #444;
+            /* Placeholder color */
+            object-fit: cover;
+            border-bottom: 3px solid var(--pop-mustard);
+            margin-bottom: 10px;
+        }
+
+        .team-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .team-role {
+            color: var(--pop-mustard);
+            font-weight: bold;
+            margin: 5px 0 10px 0;
+            font-size: 0.9rem;
+        }
+
+        .team-desc {
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        /* GENERAL PHOTO GALLERY */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery-img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background-color: #444;
+            /* Placeholder color */
+            object-fit: cover;
+            border: 2px solid var(--factory-silver);
+            filter: grayscale(100%);
+            transition: filter 0.3s, border-color 0.3s;
+        }
+
+        .gallery-img:hover {
+            filter: grayscale(0%);
+            border-color: var(--pop-crimson);
+        }
+
+        /* BACK BUTTON */
+        .btn-back {
+            display: inline-block;
+            background-color: var(--pop-crimson);
+            color: var(--ink-black);
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 60px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-back:hover {
+            transform: scale(1.05);
+            background-color: var(--pop-mustard);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>BEHIND THE CURTAIN</h1>
+        <p style="font-weight: bold; margin-top: 5px;">The Making of IDOL</p>
+    </header>
+
+    <div class="container">
+
+        <div class="video-container">
+            <video src="Assets/IDOL animated logo original.mp4" autoplay loop muted playsinline></video>
+        </div>
+
+        <section id="meet-the-team">
+            <h2>Meet The Team</h2>
+
+            <h3>Actors</h3>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="" alt="Will" class="team-photo">
+                    <p class="team-name">Will</p>
+                    <p class="team-role">Performer</p>
+                    <p class="team-desc">Short description about Will's role and background goes right here.</p>
+                </div>
+                <div class="team-card">
+                    <img src="" alt="Charlotte" class="team-photo">
+                    <p class="team-name">Charlotte</p>
+                    <p class="team-role">Performer</p>
+                    <p class="team-desc">Short description about Charlotte's role and background goes right here.</p>
+                </div>
+                <div class="team-card">
+                    <img src="" alt="Lorena" class="team-photo">
+                    <p class="team-name">Lorena</p>
+                    <p class="team-role">Performer</p>
+                    <p class="team-desc">Short description about Lorena's role and background goes right here.</p>
+                </div>
+                <div class="team-card">
+                    <img src="" alt="Ben" class="team-photo">
+                    <p class="team-name">Ben</p>
+                    <p class="team-role">Performer</p>
+                    <p class="team-desc">Short description about Ben's role and background goes right here.</p>
+                </div>
+            </div>
+
+            <h3>Production Team</h3>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="" alt="Jimmy" class="team-photo">
+                    <p class="team-name">Jimmy</p>
+                    <p class="team-role">Director / Producer</p>
+                    <p class="team-desc">Short description about their role and vision.</p>
+                </div>
+                <div class="team-card">
+                    <img src="" alt="Abbie" class="team-photo">
+                    <p class="team-name">Abbie</p>
+                    <p class="team-role">Writer / Director</p>
+                    <p class="team-desc">Short description about their role and vision.</p>
+                </div>
+                <div class="team-card">
+                    <img src="" alt="Harrison" class="team-photo">
+                    <p class="team-name">Harrison</p>
+                    <p class="team-role">Producer</p>
+                    <p class="team-desc">Short description about their role and vision.</p>
+                </div>
+                <div class="team-card">
+                    <img src="" alt="Charlotte" class="team-photo">
+                    <p class="team-name">Charlotte</p>
+                    <p class="team-role">Producer</p>
+                    <p class="team-desc">Short description about their role and vision.</p>
+                </div>
+            </div>
+
+            <h3>Backstage Crew</h3>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="" alt="Ben" class="team-photo">
+                    <p class="team-name">Ben</p>
+                    <p class="team-role">Sound Designer</p>
+                    <p class="team-desc">Short description about their backstage role.</p>
+                </div>
+                <div class="team-card">
+                    <img src="" alt="Emma" class="team-photo">
+                    <p class="team-name">Emma</p>
+                    <p class="team-role">Lighting Designer</p>
+                    <p class="team-desc">Short description about their backstage role.</p>
+                </div>
+                <div class="team-card">
+                    <img src="" alt="Tomas" class="team-photo">
+                    <p class="team-name">Tomas</p>
+                    <p class="team-role">Set Designer</p>
+                    <p class="team-desc">Short description about their backstage role.</p>
+                </div>
+                <div class="team-card">
+                    <img src="" alt="Kalista" class="team-photo">
+                    <p class="team-name">Kalista</p>
+                    <p class="team-role">Stage Manager</p>
+                    <p class="team-desc">Short description about their backstage role.</p>
+                </div>
+                <div class="team-card">
+                    <img src="" alt="Maeve" class="team-photo">
+                    <p class="team-name">Maeve</p>
+                    <p class="team-role">Writer</p>
+                    <p class="team-desc">Short description about their backstage role.</p>
+                </div>
+                <div class="team-card">
+                    <img src="" alt="Pippa" class="team-photo">
+                    <p class="team-name">Pippa</p>
+                    <p class="team-role">Costume & Props Design</p>
+                    <p class="team-desc">Short description about their backstage role.</p>
+                </div>
+                <div class="team-card">
+                    <img src="" alt="Emily" class="team-photo">
+                    <p class="team-name">Emily</p>
+                    <p class="team-role">Costume & Props Design</p>
+                    <p class="team-desc">Short description about their backstage role.</p>
+                </div>
+                <div class="team-card">
+                    <img src="" alt="Alex" class="team-photo">
+                    <p class="team-name">Alex</p>
+                    <p class="team-role">Marketing Manager</p>
+                    <p class="team-desc">Short description about their backstage role.</p>
+                </div>
+                <div class="team-card">
+                    <img src="" alt="Kieran" class="team-photo">
+                    <p class="team-name">Kieran</p>
+                    <p class="team-role">Marketing Assistant</p>
+                    <p class="team-desc">Short description about their backstage role.</p>
+                </div>
+                <div class="team-card">
+                    <img src="" alt="Jamila" class="team-photo">
+                    <p class="team-name">Jamila</p>
+                    <p class="team-role">Photographer</p>
+                    <p class="team-desc">Short description about their backstage role.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="devising">
+            <h2>The Devising Process</h2>
+            <p>Welcome to the backstage area. This is where the concepts, rehearsals, and chaos transformed into
+                <strong>IDOL</strong>. The devising process for this production relied heavily on collaborative
+                exploration, taking inspiration directly from Warhol's screen tests and factory environment.</p>
+            <p>We started with a blank slate and a shared vision of exploring the themes of fame, identity, and mass production. The process involved extensive workshops where the cast and crew explored Warhol's techniques and philosophies.</p>
+
+            <img src="" alt="Devising Notes" class="gallery-img" style="aspect-ratio: 16/9; margin-top: 15px;">
+        </section>
+
+        <section id="rehearsals">
+            <h2>In Rehearsal</h2>
+            <p>A look inside the room as the performances began to take shape.</p>
+            <div class="photo-gallery">
+                <img src="" alt="Rehearsal 1" class="gallery-img">
+                <img src="" alt="Rehearsal 2" class="gallery-img">
+                <img src="" alt="Rehearsal 3" class="gallery-img">
+            </div>
+        </section>
+
+        <section id="backstage">
+            <h2>Backstage</h2>
+            <p>The quiet moments, the chaos, and the preparation behind the curtain.</p>
+            <div class="photo-gallery">
+                <img src="" alt="Backstage 1" class="gallery-img">
+                <img src="" alt="Backstage 2" class="gallery-img">
+                <img src="" alt="Backstage 3" class="gallery-img">
+            </div>
+        </section>
+
+        <a href="index.html" class="btn-back">← BACK TO PROGRAMME</a>
+    </div>
+
+</body>
 
 </html>
