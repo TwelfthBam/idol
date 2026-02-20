@@ -196,6 +196,56 @@
             transform: scale(1.05);
             background-color: var(--pop-mustard);
         }
+
+        .team-section {
+            cursor: pointer;
+            margin-bottom: 20px;
+            border: 2px solid var(--pop-orange);
+            background-color: #1a1a1a;
+            transition: border-color 0.3s;
+            scroll-margin-top: 40px;
+        }
+
+        .team-section:hover {
+            border-color: var(--pop-cyan);
+        }
+
+        .team-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #222;
+        }
+
+        .team-header h3 {
+            margin: 0 !important;
+        }
+
+        .arrow {
+            color: var(--pop-cyan);
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .team-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            padding: 0 20px;
+        }
+
+        /* Active State */
+        .team-section.active .team-details {
+            max-height: 5000px;
+            opacity: 1;
+            padding-bottom: 20px;
+        }
+
+        .team-section.active .arrow {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 
@@ -215,123 +265,146 @@
         <section id="meet-the-team">
             <h2>Meet The Team</h2>
 
-            <h3>Actors</h3>
-            <div class="team-grid">
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/Will.jpg" alt="Will" class="team-photo">
-                    <p class="team-name">Will</p>
-                    <p class="team-role">Performer</p>
-                    <p class="team-desc">Short description about Will's role and background goes right here.</p>
+            <div class="team-section" onclick="toggleTeam(this)">
+                <div class="team-header">
+                    <h3>Actors</h3>
+                    <span class="arrow">▼</span>
                 </div>
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/CharlotteS.jpg" alt="Charlotte" class="team-photo">
-                    <p class="team-name">Charlotte</p>
-                    <p class="team-role">Performer</p>
-                    <p class="team-desc">Short description about Charlotte's role and background goes right here.</p>
-                </div>
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/Lorena.jpg" alt="Lorena" class="team-photo">
-                    <p class="team-name">Lorena</p>
-                    <p class="team-role">Performer</p>
-                    <p class="team-desc">Short description about Lorena's role and background goes right here.</p>
-                </div>
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/BenA.jpg" alt="Ben" class="team-photo">
-                    <p class="team-name">Ben</p>
-                    <p class="team-role">Performer</p>
-                    <p class="team-desc">Short description about Ben's role and background goes right here.</p>
-                </div>
-            </div>
-
-            <h3>Production Team</h3>
-            <div class="team-grid">
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/Jimmy.jpg" alt="Jimmy" class="team-photo">
-                    <p class="team-name">Jimmy</p>
-                    <p class="team-role">Director / Producer</p>
-                    <p class="team-desc">Short description about their role and vision.</p>
-                </div>
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/Abbie.jpg" alt="Abbie" class="team-photo">
-                    <p class="team-name">Abbie</p>
-                    <p class="team-role">Writer / Director</p>
-                    <p class="team-desc">Short description about their role and vision.</p>
-                </div>
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/Harrison.jpg" alt="Harrison" class="team-photo">
-                    <p class="team-name">Harrison</p>
-                    <p class="team-role">Producer</p>
-                    <p class="team-desc">Short description about their role and vision.</p>
-                </div>
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/CharlotteR.jpg" alt="Charlotte" class="team-photo">
-                    <p class="team-name">Charlotte</p>
-                    <p class="team-role">Producer</p>
-                    <p class="team-desc">Short description about their role and vision.</p>
+                <div class="team-details">
+                    <div class="team-grid">
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/Will.jpg" alt="Will" class="team-photo">
+                            <p class="team-name">Will</p>
+                            <p class="team-role">Performer</p>
+                            <p class="team-desc">Short description about Will's role and background goes right here.</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/CharlotteS.jpg" alt="Charlotte" class="team-photo">
+                            <p class="team-name">Charlotte</p>
+                            <p class="team-role">Performer</p>
+                            <p class="team-desc">Short description about Charlotte's role and background goes right
+                                here.</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/Lorena.jpg" alt="Lorena" class="team-photo">
+                            <p class="team-name">Lorena</p>
+                            <p class="team-role">Performer</p>
+                            <p class="team-desc">Short description about Lorena's role and background goes right here.
+                            </p>
+                        </div>
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/BenA.jpg" alt="Ben" class="team-photo">
+                            <p class="team-name">Ben</p>
+                            <p class="team-role">Performer</p>
+                            <p class="team-desc">Short description about Ben's role and background goes right here.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <h3>Backstage Crew</h3>
-            <div class="team-grid">
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/BenB.jpg" alt="Ben" class="team-photo">
-                    <p class="team-name">Ben</p>
-                    <p class="team-role">Sound Designer</p>
-                    <p class="team-desc">Short description about their backstage role.</p>
+            <div class="team-section" onclick="toggleTeam(this)">
+                <div class="team-header">
+                    <h3>Production Team</h3>
+                    <span class="arrow">▼</span>
                 </div>
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/Emma.jpg" alt="Emma" class="team-photo">
-                    <p class="team-name">Emma</p>
-                    <p class="team-role">Lighting Designer</p>
-                    <p class="team-desc">Short description about their backstage role.</p>
+                <div class="team-details">
+                    <div class="team-grid">
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/Jimmy.jpg" alt="Jimmy" class="team-photo">
+                            <p class="team-name">Jimmy</p>
+                            <p class="team-role">Director / Producer</p>
+                            <p class="team-desc">Short description about their role and vision.</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/Abbie.jpg" alt="Abbie" class="team-photo">
+                            <p class="team-name">Abbie</p>
+                            <p class="team-role">Writer / Director</p>
+                            <p class="team-desc">Short description about their role and vision.</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/Harrison.jpg" alt="Harrison" class="team-photo">
+                            <p class="team-name">Harrison</p>
+                            <p class="team-role">Producer</p>
+                            <p class="team-desc">Short description about their role and vision.</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/CharlotteR.jpg" alt="Charlotte" class="team-photo">
+                            <p class="team-name">Charlotte</p>
+                            <p class="team-role">Producer</p>
+                            <p class="team-desc">Short description about their role and vision.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/Tomas.jpg" alt="Tomas" class="team-photo">
-                    <p class="team-name">Tomas</p>
-                    <p class="team-role">Set Designer</p>
-                    <p class="team-desc">Short description about their backstage role.</p>
+            </div>
+
+            <div class="team-section" onclick="toggleTeam(this)">
+                <div class="team-header">
+                    <h3>Backstage Crew</h3>
+                    <span class="arrow">▼</span>
                 </div>
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/Kalista.jpg" alt="Kalista" class="team-photo">
-                    <p class="team-name">Kalista</p>
-                    <p class="team-role">Stage Manager</p>
-                    <p class="team-desc">Short description about their backstage role.</p>
-                </div>
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/Maeve.jpg" alt="Maeve" class="team-photo">
-                    <p class="team-name">Maeve</p>
-                    <p class="team-role">Writer</p>
-                    <p class="team-desc">Short description about their backstage role.</p>
-                </div>
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/Pippa.jpg" alt="Pippa" class="team-photo">
-                    <p class="team-name">Pippa</p>
-                    <p class="team-role">Costume & Props Design</p>
-                    <p class="team-desc">Short description about their backstage role.</p>
-                </div>
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/Emily.jpg" alt="Emily" class="team-photo">
-                    <p class="team-name">Emily</p>
-                    <p class="team-role">Costume & Props Design</p>
-                    <p class="team-desc">Short description about their backstage role.</p>
-                </div>
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/Alex.jpg" alt="Alex" class="team-photo">
-                    <p class="team-name">Alex</p>
-                    <p class="team-role">Marketing Manager</p>
-                    <p class="team-desc">Short description about their backstage role.</p>
-                </div>
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/Kieran.jpg" alt="Kieran" class="team-photo">
-                    <p class="team-name">Kieran</p>
-                    <p class="team-role">Marketing Assistant</p>
-                    <p class="team-desc">Short description about their backstage role.</p>
-                </div>
-                <div class="team-card">
-                    <img src="Assets/Cast & Crew/Jamila.jpg" alt="Jamila" class="team-photo">
-                    <p class="team-name">Jamila</p>
-                    <p class="team-role">Photographer</p>
-                    <p class="team-desc">Short description about their backstage role.</p>
+                <div class="team-details">
+                    <div class="team-grid">
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/BenB.jpg" alt="Ben" class="team-photo">
+                            <p class="team-name">Ben</p>
+                            <p class="team-role">Sound Designer</p>
+                            <p class="team-desc">Short description about their backstage role.</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/Emma.jpg" alt="Emma" class="team-photo">
+                            <p class="team-name">Emma</p>
+                            <p class="team-role">Lighting Designer</p>
+                            <p class="team-desc">Short description about their backstage role.</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/Tomas.jpg" alt="Tomas" class="team-photo">
+                            <p class="team-name">Tomas</p>
+                            <p class="team-role">Set Designer</p>
+                            <p class="team-desc">Short description about their backstage role.</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/Kalista.jpg" alt="Kalista" class="team-photo">
+                            <p class="team-name">Kalista</p>
+                            <p class="team-role">Stage Manager</p>
+                            <p class="team-desc">Short description about their backstage role.</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/Maeve.jpg" alt="Maeve" class="team-photo">
+                            <p class="team-name">Maeve</p>
+                            <p class="team-role">Writer</p>
+                            <p class="team-desc">Short description about their backstage role.</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/Pippa.jpg" alt="Pippa" class="team-photo">
+                            <p class="team-name">Pippa</p>
+                            <p class="team-role">Costume & Props Design</p>
+                            <p class="team-desc">Short description about their backstage role.</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/Emily.jpg" alt="Emily" class="team-photo">
+                            <p class="team-name">Emily</p>
+                            <p class="team-role">Costume & Props Design</p>
+                            <p class="team-desc">Short description about their backstage role.</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/Alex.jpg" alt="Alex" class="team-photo">
+                            <p class="team-name">Alex</p>
+                            <p class="team-role">Marketing Manager</p>
+                            <p class="team-desc">Short description about their backstage role.</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/Kieran.jpg" alt="Kieran" class="team-photo">
+                            <p class="team-name">Kieran</p>
+                            <p class="team-role">Marketing Assistant</p>
+                            <p class="team-desc">Short description about their backstage role.</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="Assets/Cast & Crew/Jamila.jpg" alt="Jamila" class="team-photo">
+                            <p class="team-name">Jamila</p>
+                            <p class="team-role">Photographer</p>
+                            <p class="team-desc">Short description about their backstage role.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -340,8 +413,11 @@
             <h2>The Devising Process</h2>
             <p>Welcome to the backstage area. This is where the concepts, rehearsals, and chaos transformed into
                 <strong>IDOL</strong>. The devising process for this production relied heavily on collaborative
-                exploration, taking inspiration directly from Warhol's screen tests and factory environment.</p>
-            <p>We started with a blank slate and a shared vision of exploring the themes of fame, identity, and mass production. The process involved extensive workshops where the cast and crew explored Warhol's techniques and philosophies.</p>
+                exploration, taking inspiration directly from Warhol's screen tests and factory environment.
+            </p>
+            <p>We started with a blank slate and a shared vision of exploring the themes of fame, identity, and mass
+                production. The process involved extensive workshops where the cast and crew explored Warhol's
+                techniques and philosophies.</p>
 
             <img src="" alt="Devising Notes" class="gallery-img" style="aspect-ratio: 16/9; margin-top: 15px;">
         </section>
@@ -369,6 +445,29 @@
         <a href="index.html" class="btn-back">← BACK TO PROGRAMME</a>
     </div>
 
+    <script>
+        function toggleTeam(element) {
+            const isAlreadyOpen = element.classList.contains('active');
+
+            // Close all sections first
+            document.querySelectorAll('.team-section').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            if (!isAlreadyOpen) {
+                element.classList.add('active');
+
+                // Wait exactly 400ms for the CSS expanding animation to fully finish
+                setTimeout(() => {
+                    element.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 400);
+            }
+        }
+    </script>
+    </script>
 </body>
 
 </html>
